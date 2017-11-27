@@ -179,18 +179,12 @@ Refer to https://help.github.com/articles/adding-an-existing-project-to-github-u
 # Post 
 ~~~~
 {
-"userId" : "ravir2",
-"fullName" : "Raja Ravir",
-"role" : "petr-it-admin" 
-}
-{
-"userId" : "balass2",
-"fullName" : "Sasidharan Balasubramanian",
-"role" : "gcm-admin" 
-}
-{
-"userId" : "reamc2",
-"fullName" : "Cheryl Ream",
-"role" : "gcm-user" 
+"name" : "Toront Javascript Developers",
+"description" : "Angular, React and VueJS",
+"datePosted" : "2017-12-12",
+"organizer" : "admin", 
+"status" : "active", 
+"users": [], 
+"meetings": []
 }
 ~~~~~
