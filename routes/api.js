@@ -5,9 +5,9 @@ var router = express.Router();
 const GroupController = require('../controllers/groupController');
 
 // Routes
-router.get('/groups', GroupController.create);
-router.get('/groups/:id', GroupController.update);
-router.get('/groups/:id', GroupController.remove);
+router.post('/groups', GroupController.create);
+router.put('/groups/:id', GroupController.update);
+router.delete('/groups/:id', GroupController.remove);
 router.get('/groups', GroupController.index);
 
 // Return router

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const MeetingSchema = new Schema({
     subject: String,
     place: String,
-    time: String,
+    time: Date,
     reference: String,
     comments: [{
         type: Schema.Types.ObjectId,
