@@ -4,6 +4,8 @@ Create Express MongoDB REST API on
 ## Reference 
   - [MEAN STACK : BUILDING REST API WITH NODE AND MONGODB](http://www.bogotobogo.com/MEAN-Stack/Building-REST-API-with-Node-Mongodb.php)
   - [Vijay T's Build an Express API for Mongo database](https://vijayt.com/post/build-an-express-api-for-mongo-database/)
+## Design : ER Diagram
+![er_design](https://user-images.githubusercontent.com/11605506/33246579-48761464-d2e4-11e7-8608-03ee3ac8bbed.png)
 
 1. mkdir meetup
 2. cd meetup
