@@ -10,6 +10,10 @@ const UserSchema = new Schema({
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'comment'
+    }],
+    groups: [{
+        type: Schema.Types.ObjectId,
+        ref: 'group'
     }]
 });
 
