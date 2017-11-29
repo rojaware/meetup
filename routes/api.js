@@ -9,7 +9,9 @@ const CommentController = require('../controllers/commentController');
 /*
   1. create new user, CRUD
   2. create new group, CRUD
-  3. create meeting
+  3. create meeting, CRUD
+  4. create comment, CRUD
+  5. add user to group
   4. select a meeting and add comment
   4. add next user
   5. list groups
@@ -26,7 +28,6 @@ const CommentController = require('../controllers/commentController');
   13. participate a meeting
   14. cancel participation
   15. add another meeting
-  16. cancel meeting
   17. create another group
   18. drop group (cascade drop meetings under group)
 */
@@ -44,19 +45,21 @@ router.put('/groups/:id', GroupController.update);
 router.delete('/groups/:id', GroupController.remove);
 router.get('/groups', GroupController.index);
 router.get('/groups/:id', GroupController.find);
+// add an user to group
+// create a meeting under group
+// remove user from group
+// remove a meeting from group
+// display all users by group
+// display all meetings by group
+router.get('/meetings/findByGroup/:group_id', MeetingController.findByGroup);
 
 // Routes - meeting #3
 router.post('/meetings', MeetingController.create);
 router.put('/meetings/:id', MeetingController.update);
 router.delete('/meetings/:id', MeetingController.remove);
 router.get('/meetings/:id', MeetingController.find);
-
-// joint
-// display all users by group
-// display all groups by user
-// display all meetings by user
-// display all meetings by group
-router.get('/meetings/:group_id', MeetingController.index);
+// display all comments by meeting
+// list all users by meeting
 
 
 // Routes - comment
