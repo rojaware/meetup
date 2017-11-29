@@ -177,8 +177,20 @@ Nov 2, 2016 :: http://thelillysblog.com/2016/11/02/MEAN-stack-with-Angular2/
 Refer to https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 
 
-## Add User Model
-# Post 
+## JSON Sample
+# Post Group
+~~~~
+{
+    "_id": "5a1e259ba558371fec4208af",
+    "name": "giwon",
+    "password": "$2a$10$xASn1mLiujUU/ZX66PBV0e6K7guPBloqfXr83FHqnI.u5zTjEydhq",
+    "email": "giwon@gmail.com",
+    "role": "user",
+    "__v": 0,
+    "groups": []
+}
+~~~~
+# Post User
 ~~~~
 {
 "name" : "Toront Javascript Developers",
