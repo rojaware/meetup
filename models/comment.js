@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CommentSchema = new Schema({
     content: String,
     datePosted: Date,
-    user: {
+    postedBy: {
         type: Schema.Types.ObjectId,
         ref: 'user'
     },

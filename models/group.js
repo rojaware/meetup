@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var Meeting = require('./meeting');
 
 const GroupSchema = new Schema({
     name: String,
@@ -11,10 +12,7 @@ const GroupSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     }], 
-    meetings: [{
-        type: Schema.Types.ObjectId,
-        ref: 'meeting'
-    }]
+    meetings: [Meeting.schema]
 });
 
 const Group = mongoose.model('group', GroupSchema);

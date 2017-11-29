@@ -1,13 +1,21 @@
 const Group = require('../models/group');
 
 class GroupController {
+    // add new group..
     static create(req, res) {
         Group.create(req.body)
             .then(group => {
                 res.send(group);
             });
     }
-
+    static find(req, res) {
+        const { id } = req.params;
+        Group.findById(id)
+            .then(() => Group.findById(id))
+            .then(group => {
+                res.send(group);
+            });
+    }
     static update(req, res) {
         const { id } = req.params;
         Group.findByIdAndUpdate(id, req.body)

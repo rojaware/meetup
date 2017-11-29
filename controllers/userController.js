@@ -1,42 +1,51 @@
-const Group = require('../models/group');
+const User = require('../models/user');
 
-class GroupController {
+class UserController {
     static create(req, res) {
-        Group.create(req.body)
-            .then(group => {
-                res.send(group);
+        User.create(req.body)
+            .then(user => {
+                res.send(user);
             });
     }
 
     static update(req, res) {
         const { id } = req.params;
-        Group.findByIdAndUpdate(id, req.body)
-            .then(() => Group.findById(id))
-            .then(group => {
-                res.send(group);
+        User.findByIdAndUpdate(id, req.body)
+            .then(() => User.findById(id))
+            .then(user => {
+                res.send(user);
+            });
+    }
+
+    static find(req, res) {
+        const { id } = req.params;
+        User.findById(id)
+            .then(() => User.findById(id))
+            .then(user => {
+                res.send(user);
             });
     }
 
     static remove(req, res) {
         const { id } = req.params;
-        Group.findByIdAndRemove(id)
+        User.findByIdAndRemove(id)
             .then(() => res.send({ id }));
     }
 
     static index(req, res) {
         const { offset, limit } = req.query;
         Promise.all([
-            Group.find({})
+            User.find({})
                 .skip(offset)
                 .limit(limit),
-            Group.count()
-        ]).then(([groups, count]) => {
+            User.count()
+        ]).then(([users, count]) => {
             res.send({
-                groups,
+                users,
                 count
             });
         });
     }
 }
 
-module.exports = GroupController;
+module.exports = UserController;

@@ -7,10 +7,7 @@ const UserSchema = new Schema({
     password: String,
     email: String,
     role: String,
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'comment'
-    }],
+    
     groups: [{
         type: Schema.Types.ObjectId,
         ref: 'group'

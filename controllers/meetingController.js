@@ -1,42 +1,49 @@
-const Group = require('../models/group');
+const Meeting = require('../models/meeting');
 
-class GroupController {
+class MeetingController {
     static create(req, res) {
-        Group.create(req.body)
-            .then(group => {
-                res.send(group);
+        Meeting.create(req.body)
+            .then(meeting => {
+                res.send(meeting);
             });
     }
-
+    static find(req, res) {
+        const { id } = req.params;
+        Meeting.findById(id)
+            .then(() => Meeting.findById(id))
+            .then(meeting => {
+                res.send(meeting);
+            });
+    }
     static update(req, res) {
         const { id } = req.params;
-        Group.findByIdAndUpdate(id, req.body)
-            .then(() => Group.findById(id))
-            .then(group => {
-                res.send(group);
+        Meeting.findByIdAndUpdate(id, req.body)
+            .then(() => Meeting.findById(id))
+            .then(meeting => {
+                res.send(meeting);
             });
     }
 
     static remove(req, res) {
         const { id } = req.params;
-        Group.findByIdAndRemove(id)
+        Meeting.findByIdAndRemove(id)
             .then(() => res.send({ id }));
     }
 
     static index(req, res) {
         const { offset, limit } = req.query;
         Promise.all([
-            Group.find({})
+            Meeting.find({})
                 .skip(offset)
                 .limit(limit),
-            Group.count()
-        ]).then(([groups, count]) => {
+            Meeting.count()
+        ]).then(([meetings, count]) => {
             res.send({
-                groups,
+                meetings,
                 count
             });
         });
     }
 }
 
-module.exports = GroupController;
+module.exports = MeetingController;

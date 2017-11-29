@@ -1,42 +1,50 @@
-const Group = require('../models/group');
+// deprecated by meeting controller
+const Comment = require('../models/comment');
 
-class GroupController {
+class CommentController {
     static create(req, res) {
-        Group.create(req.body)
-            .then(group => {
-                res.send(group);
+        Comment.create(req.body)
+            .then(comment => {
+                res.send(comment);
             });
     }
-
+    static find(req, res) {
+        const { id } = req.params;
+        Comment.findById(id)
+            .then(() => Comment.findById(id))
+            .then(comment => {
+                res.send(comment);
+            });
+    }
     static update(req, res) {
         const { id } = req.params;
-        Group.findByIdAndUpdate(id, req.body)
-            .then(() => Group.findById(id))
-            .then(group => {
-                res.send(group);
+        Comment.findByIdAndUpdate(id, req.body)
+            .then(() => Comment.findById(id))
+            .then(comment => {
+                res.send(comment);
             });
     }
 
     static remove(req, res) {
         const { id } = req.params;
-        Group.findByIdAndRemove(id)
+        Comment.findByIdAndRemove(id)
             .then(() => res.send({ id }));
     }
 
     static index(req, res) {
         const { offset, limit } = req.query;
         Promise.all([
-            Group.find({})
+            Comment.find({})
                 .skip(offset)
                 .limit(limit),
-            Group.count()
-        ]).then(([groups, count]) => {
+            Comment.count()
+        ]).then(([comments, count]) => {
             res.send({
-                groups,
+                comments,
                 count
             });
         });
     }
 }
 
-module.exports = GroupController;
+module.exports = CommentController;

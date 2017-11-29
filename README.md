@@ -5,6 +5,7 @@ Create Express MongoDB REST API on
   - [MEAN STACK : BUILDING REST API WITH NODE AND MONGODB](http://www.bogotobogo.com/MEAN-Stack/Building-REST-API-with-Node-Mongodb.php)
   - [Vijay T's Build an Express API for Mongo database](https://vijayt.com/post/build-an-express-api-for-mongo-database/)
   - [MongoDB Tutorial - Create a Relationship](https://www.quackit.com/mongodb/tutorial/mongodb_create_a_relationship.cfm)
+  - [Moongoose Tutorial](http://mongoosejs.com/docs/3.5.x/index.html) 
 
 ## Design : ER Diagram
 ![er_design](https://user-images.githubusercontent.com/11605506/33247520-aa777fe2-d2ec-11e7-89fb-2a4b783806ce.png)
