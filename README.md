@@ -8,7 +8,7 @@ Create Express MongoDB REST API on
   - [Moongoose Tutorial](http://mongoosejs.com/docs/3.5.x/index.html) 
 
 ## Design : ER Diagram
-![er_design](https://user-images.githubusercontent.com/11605506/33247520-aa777fe2-d2ec-11e7-89fb-2a4b783806ce.png)
+![er_design](https://github.com/rojaware/meetup/blob/master/er_design.png?raw=true)
 
 1. mkdir meetup
 2. cd meetup
