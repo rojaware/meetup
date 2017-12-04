@@ -1,7 +1,8 @@
 const Group = require('../models/group');
+const User = require('../models/user');
 
 class GroupController {
-    // add new group..
+    // create new group..
     static create(req, res) {
         Group.create(req.body)
             .then(group => {
@@ -44,6 +45,17 @@ class GroupController {
                 count
             });
         });
+    }
+    static addUser(req, res) {
+        const groupId = req.params.id ;
+        const userId = req.params.userId ;
+        Group.findByIdAndUpdate(groupId, {$addToSet : {"users": userId }})
+            .then(() => Group.findById(groupId))
+            .then(group => {
+                res.send(group);
+            });
+        User.findByIdAndUpdate(userId,  {$addToSet : {"groups": groupId }})
+            .then(() => User.findById(id));   
     }
 }
 

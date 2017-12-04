@@ -46,12 +46,13 @@ router.delete('/groups/:id', GroupController.remove);
 router.get('/groups', GroupController.index);
 router.get('/groups/:id', GroupController.find);
 // add an user to group
+router.get('/groups/addUser/:id/:userId', GroupController.addUser);
 // create a meeting under group
 // remove user from group
 // remove a meeting from group
 // display all users by group
 // display all meetings by group
-router.get('/meetings/findByGroup/:group_id', MeetingController.findByGroup);
+// router.get('/meetings/findByGroup/:group_id', MeetingController.findByGroup);
 
 // Routes - meeting #3
 router.post('/meetings', MeetingController.create);
