@@ -57,6 +57,17 @@ class GroupController {
         User.findByIdAndUpdate(userId,  {$addToSet : {"groups": groupId }})
             .then(() => User.findById(id));   
     }
+    static addMeeting(req, res) {
+        const groupId = req.params.id ;
+        const meetingId = req.params.meetingId ;
+        Group.findByIdAndUpdate(groupId, {$addToSet : {"meetings": meetingId }})
+            .then(() => Group.findById(groupId))
+            .then(group => {
+                res.send(group);
+            });
+        User.findByIdAndUpdate(userId,  {$addToSet : {"groups": groupId }})
+            .then(() => User.findById(id));   
+    }
 }
 
 module.exports = GroupController;

@@ -11,8 +11,7 @@ const GroupSchema = new Schema({
     users: [{
         type: Schema.Types.ObjectId,
         ref: 'user'
-    }], 
-    meetings: [Meeting.schema]
+    }]
 });
 
 const Group = mongoose.model('group', GroupSchema);

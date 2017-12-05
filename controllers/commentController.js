@@ -1,12 +1,18 @@
 // deprecated by meeting controller
 const Comment = require('../models/comment');
+const Meeting = require('../models/meeting');
 
 class CommentController {
     static create(req, res) {
-        Comment.create(req.body)
-            .then(comment => {
-                res.send(comment);
-            });
+        const { meetingId } = req.params.meetingId;
+        
+        var comment = Comment.create(req.body);
+
+        Meeting.findByIdAndUpdate(meetingId, {$addToSet : {"comments": comment.id }})
+            .then(() => Meeting.findById(meetingId))
+            .then(meeting => {
+                res.send(meeting);
+            });            
     }
     static find(req, res) {
         const { id } = req.params;

@@ -15,7 +15,14 @@ const MeetingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     }], 
-    comments: [Comment.schema]
+    group: {
+        type: Schema.Types.ObjectId,
+        ref: 'group'
+    }, 
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'comment'
+    }]
 });
 
 
