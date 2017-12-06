@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var Meeting = require('./meeting');
 
 const GroupSchema = new Schema({
     name: String,
     description: String,
     organizer: String,
     datePosted: Date,
-    status: String,
+    isActive: Boolean,
     users: [{
         type: Schema.Types.ObjectId,
         ref: 'user'

@@ -7,7 +7,10 @@ const UserSchema = new Schema({
     password: String,
     email: String,
     role: String,
-    
+    isActive: {
+        type: Boolean,
+        default: true
+    },
     groups: [{
         type: Schema.Types.ObjectId,
         ref: 'group'

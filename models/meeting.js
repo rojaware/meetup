@@ -1,24 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var Comment = require('./comment');
 
 const MeetingSchema = new Schema({
-    subject: String,
-    postedBy: {
-        type: Schema.Types.ObjectId,
-        ref: 'user'
-    },
+    subject: String, 
     place: String,
     time: Date,
     reference: String,
-    users: [{
-        type: Schema.Types.ObjectId,
-        ref: 'user'
-    }], 
     group: {
         type: Schema.Types.ObjectId,
         ref: 'group'
     }, 
+    postedBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    users: [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    }], 
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'comment'

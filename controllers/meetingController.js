@@ -2,6 +2,7 @@ const Meeting = require('../models/meeting');
 
 class MeetingController {
     static create(req, res) {
+        console.log("current meeting -> " + JSON.stringify(req.body));
         Meeting.create(req.body)
             .then(meeting => {
                 res.send(meeting);
@@ -28,6 +29,10 @@ class MeetingController {
         const { id } = req.params;
         Meeting.findByIdAndRemove(id)
             .then(() => res.send({ id }));
+    }
+    static removeAll(req, res) {
+        Meeting.remove({})
+            .then(() => res.send({  }));
     }
 
     static index(req, res) {

@@ -58,6 +58,7 @@ router.put('/groups/addUser/:id/:userId', GroupController.addUser);
 router.post('/meetings/', MeetingController.create);
 router.put('/meetings/:id', MeetingController.update);
 router.delete('/meetings/:id', MeetingController.remove);
+router.delete('/meetings/', MeetingController.removeAll);
 router.get('/meetings/:id', MeetingController.find);
 router.get('/meetings/', MeetingController.index);
 // display all meetings by group
