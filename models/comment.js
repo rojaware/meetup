@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
     content: String,
-    datePosted: Date,
+    datePosted: {
+        type: Date,
+        // `Date.now()` returns the current unix timestamp as a number
+        default: Date.now
+      },
     postedBy: {
         type: Schema.Types.ObjectId,
         ref: 'user'

@@ -33,7 +33,22 @@ class MeetingController {
     static index(req, res) {
         const { offset, limit } = req.query;
         Promise.all([
-            Meeting.find({})
+            Meeting.find({ })
+                .skip(offset)
+                .limit(limit),
+            Meeting.count()
+        ]).then(([meetings, count]) => {
+            res.send({
+                meetings,
+                count
+            });
+        });
+    }
+    static findMeetingsByGroupId(req, res) {
+        const { offset, limit } = req.query;
+        const { groupId } = req.params;
+        Promise.all([
+            Meeting.find({group: groupId })
                 .skip(offset)
                 .limit(limit),
             Meeting.count()

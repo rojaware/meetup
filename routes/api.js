@@ -51,7 +51,7 @@ router.put('/groups/addUser/:id/:userId', GroupController.addUser);
 // remove user from group
 // remove a meeting from group
 // display all users by group
-// display all meetings by group
+
 // router.get('/meetings/findByGroup/:group_id', MeetingController.findByGroup);
 
 // Routes - meeting #3
@@ -59,6 +59,9 @@ router.post('/meetings/', MeetingController.create);
 router.put('/meetings/:id', MeetingController.update);
 router.delete('/meetings/:id', MeetingController.remove);
 router.get('/meetings/:id', MeetingController.find);
+router.get('/meetings/', MeetingController.index);
+// display all meetings by group
+router.get('/meetings/findByGroup/:groupId', MeetingController.findMeetingsByGroupId);
 // display all comments by meeting
 // list all users by meeting
 
@@ -67,7 +70,8 @@ router.post('/comments', CommentController.create);
 router.put('/comments/:id', CommentController.update);
 router.delete('/comments/:id', CommentController.remove);
 // list all comments by meeting
-router.get('/comments/:meeting_id', CommentController.index);
+router.get('/comments/:meeting_id', CommentController.findCommentsByMeetingId);
+router.get('/comments', CommentController.index);
 router.get('/comments/:id', CommentController.find);
 
 // Return router

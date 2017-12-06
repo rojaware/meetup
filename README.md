@@ -1,6 +1,24 @@
 ### Meetup
 
 Create Express MongoDB REST API on 
+
+## Setup application directly from GitHub
+
+1. clone or download this git https://github.com/rojaware/meetup.git to your local directory (for example, c:\vue )
+1. go to your local directory (c:\vue) and 'dir' to list, you will find 'c:\vue\meetup' folder has been created
+1. cd meetup
+1. npm install
+1. execute nodemon as below
+~~~~
+C:\vue\meetup>nodemon server
+[nodemon] 1.11.0
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node server index.js`
+Server is running on port 3000 on mongodb : mongodb://localhost/meetup
+~~~~
+1. from chrome browser, enter url 'http://localhost:3000/api/groups' to display groups in JSON
+
 ## Reference 
   - [MEAN STACK : BUILDING REST API WITH NODE AND MONGODB](http://www.bogotobogo.com/MEAN-Stack/Building-REST-API-with-Node-Mongodb.php)
   - [Vijay T's Build an Express API for Mongo database](https://vijayt.com/post/build-an-express-api-for-mongo-database/)
@@ -178,10 +196,13 @@ Refer to https://help.github.com/articles/adding-an-existing-project-to-github-u
 
 
 ## JSON Sample
-# Post Group
+1. add user
+2. add group
+3. add meeting
+4. add comment
+# Add User - http://localhost:3000/api/users
 ~~~~
 {
-    "_id": "5a1e259ba558371fec4208af",
     "name": "giwon",
     "password": "$2a$10$xASn1mLiujUU/ZX66PBV0e6K7guPBloqfXr83FHqnI.u5zTjEydhq",
     "email": "giwon@gmail.com",
@@ -190,7 +211,7 @@ Refer to https://help.github.com/articles/adding-an-existing-project-to-github-u
     "groups": []
 }
 ~~~~
-# Post User
+# Add Group - http://localhost:3000/api/groups
 ~~~~
 {
 "name" : "Toront Javascript Developers",
@@ -198,7 +219,68 @@ Refer to https://help.github.com/articles/adding-an-existing-project-to-github-u
 "datePosted" : "2017-12-12",
 "organizer" : "admin", 
 "status" : "active", 
-"users": [], 
+"users": ["5a259ae3b96f5132585d5719"], 
 "meetings": []
 }
-~~~~~
+~~~~
+# Add Meeting
+~~~~
+{
+"subject" : "introduction meeting",
+"postedBy" : "5a259ae3b96f5132585d5719",
+"place" : "Toronto Meeting Room 1",
+"time" : "2017-12-12", 
+"users" : ["5a259ae3b96f5132585d5719"],
+"group": "5a26e473e5bf922f285aa777", 
+"comments": []
+}
+==> 5a26f2d11dd1780f084b87e0
+~~~~
+# Add Comment
+~~~~
+{
+"content" : "I am in",
+"postedBy" : "5a259ae3b96f5132585d5719",
+"meeting" : "5a26f2d11dd1780f084b87e0" 
+}
+
+~~~~
+# List Users
+~~~~
+{
+    "users": [
+        {
+            "_id": "5a259ae3b96f5132585d5719",
+            "name": "ravir2",
+            "password": "$2a$10$xK92232wm2hTF070DJxTM.e46dlopauuskSPBeSFo0KkLcIKZiJN6",
+            "email": "ravi@test.com",
+            "role": "user",
+            "__v": 0,
+            "groups": []
+        },
+        {
+            "_id": "5a259b0cb96f5132585d571a",
+            "name": "lees4",
+            "password": "$2a$10$EMykrrVf7mOEWzRPJAvIy.cnUzHnZ3rY2m.GyVHMvoCw.xULX3xBO",
+            "email": "scott@test.com",
+            "role": "admin",
+            "__v": 0,
+            "groups": []
+        },
+        {
+            "_id": "5a259b5bb96f5132585d571b",
+            "name": "rufi4",
+            "password": "$2a$10$5UHT1tChuXQjlIA06vYzTuAZvbOGmeesjz9o3erhz/1PD9P9na0I2",
+            "email": "rufina@test.com",
+            "role": "manager",
+            "__v": 0,
+            "groups": []
+        }
+    ],
+    "count": 3
+}
+~~~~
+# Post Group
+~~~~
+
+~~~~
