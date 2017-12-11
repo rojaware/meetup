@@ -25,7 +25,7 @@ class GroupController {
                 res.send(group);
             });
     }
-
+ 
     static remove(req, res) {
         const { id } = req.params;
         Group.findByIdAndRemove(id)

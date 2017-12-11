@@ -35,6 +35,7 @@ const CommentController = require('../controllers/commentController');
 router.post('/users', UserController.create); // #1
 router.put('/users/:id', UserController.update); // #1
 router.delete('/users/:id', UserController.remove); // #1
+router.delete('/users/removeSoftly/:id', UserController.removeSoftly); // #1
 // list all members
 router.get('/users', UserController.index); // #1
 router.get('/users/:id', UserController.find); // #1
@@ -47,7 +48,7 @@ router.get('/groups', GroupController.index);
 router.get('/groups/:id', GroupController.find);
 // add an user to group
 router.put('/groups/addUser/:id/:userId', GroupController.addUser);
-
+// TODO later below methods
 // remove user from group
 // remove a meeting from group
 // display all users by group

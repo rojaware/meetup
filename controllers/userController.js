@@ -16,7 +16,25 @@ class UserController {
                 res.send(user);
             });
     }
+  /**
+    * Remove user from meeting
+    * Remove user from Group
+    * Remove user from users
+    * Or just update the isActive to 'false' in case of user revoked
+    */
+    static removeSoftly(req, res) {
+        const { id } = req.params;
+        // remove this user from group :: search groups for this user
 
+        // remove this user from meeting :: search meeting for this user
+        
+        User.findByIdAndUpdate(id, { "isActive" : false})
+            .then(() => User.findById(id))
+            .then(user => {
+                res.send(user);
+            });
+
+    }
     static find(req, res) {
         const { id } = req.params;
         User.findById(id)
